@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hamburger Menu</title>
+  <style>
+    
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    
+    nav {
+      position: relative;
+      width: 100%;
+      padding: 15px 30px;
+      background-color: #333;
+      color: #fff;
+    }
+
+    
+    .menu-icon {
+      width: 35px;
+      cursor: pointer;
+      display: block;
+    }
+
+    .menu-icon .line {
+      width: 100%;
+      height: 4px;
+      background-color: white;
+      margin: 6px 0;
+      transition: all 0.3s ease;
+    }
+
+    
+    .nav-links {
+      list-style: none;
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 60px;
+      right: 30px;
+      background-color: #333;
+      padding: 10px;
+    }
+
+    .nav-links li {
+      margin: 10px 0;
+    }
+
+    .nav-links li a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+    }
+
+    .nav-active {
+      display: flex;
+    }
+
+    .menu-icon.active .line:nth-child(1) {
+      transform: translateY(10px) rotate(45deg);
+    }
+
+    .menu-icon.active .line:nth-child(2) {
+      opacity: 0; 
+    }
+
+    .menu-icon.active .line:nth-child(3) {
+      transform: translateY(-10px) rotate(-45deg);
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="menu-icon" id="menu-icon">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <script>
+    const menuIcon = document.getElementById('menu-icon');
+    const navLinks = document.getElementById('nav-links');
+
+    menuIcon.addEventListener('click', () => {
+      navLinks.classList.toggle('nav-active');
+      menuIcon.classList.toggle('active');
+    });
+  </script>
+</body>
+</html>
